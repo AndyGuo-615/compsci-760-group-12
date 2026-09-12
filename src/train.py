@@ -74,3 +74,50 @@ def validate_one_epoch(
     accuracy = total_correct / total_samples
 
     return average_loss, accuracy
+
+
+class EarlyStopping:
+    """
+    Stop training when validation loss stops improving.
+
+    The best model is saved automatically.
+    """
+
+    def __init__(
+        self,
+        patience,
+        save_path,
+        min_delta=0.0
+    ):
+        self.patience = patience
+        self.save_path = save_path
+        self.min_delta = min_delta
+
+        self.best_loss = None
+        self.counter = 0
+        self.should_stop = False
+
+    def step(self, validation_loss, model):
+
+        # First validation result
+        if self.best_loss is None:
+            self.best_loss = validation_loss
+            torch.save(model.state_dict(), self.save_path)
+            return
+
+        # Validation loss improved
+        if validation_loss < self.best_loss - self.min_delta:
+            self.best_loss = validation_loss
+            self.counter = 0
+
+            torch.save(
+                model.state_dict(),
+                self.save_path
+            )
+
+        # No improvement
+        else:
+            self.counter += 1
+
+            if self.counter >= self.patience:
+                self.should_stop = True

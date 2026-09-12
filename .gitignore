@@ -2,3 +2,4 @@ data/*
 !data/README.md
 .vscode/
 __pycache__/
+checkpoints/

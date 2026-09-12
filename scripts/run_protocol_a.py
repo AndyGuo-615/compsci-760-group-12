@@ -19,7 +19,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from src.dataset import FingerprintDataset
 from src.model import build_resnet18
 from src.transforms import get_train_transform, get_eval_transform
-from src.train import train_one_epoch, validate_one_epoch
+from src.train import train_one_epoch, validate_one_epoch, EarlyStopping
 
 
 def main():
@@ -59,6 +59,12 @@ def main():
         action="store_true"
     )
 
+    parser.add_argument(
+       "--patience",
+       type=int,
+       required=True
+    )
+
     args = parser.parse_args()
 
     # Reproducibility
@@ -90,6 +96,7 @@ def main():
     print("Epochs:", args.epochs)
     print("Learning rate:", args.lr)
     print("Pretrained:", args.pretrained)
+    print("Patience:", args.patience)
     print("-------------------------")
     print()
 
@@ -169,6 +176,23 @@ def main():
     )
 
     # --------------------------------------------------
+    # Early stopping and model saving
+    # --------------------------------------------------
+
+    checkpoint_dir = PROJECT_ROOT / "checkpoints"
+    checkpoint_dir.mkdir(parents=True, exist_ok=True)
+
+    checkpoint_path = (
+        checkpoint_dir
+        / f"protocol_a_seed{args.seed}_best.pt"
+    )
+
+    early_stopping = EarlyStopping(
+        patience=args.patience,
+        save_path=checkpoint_path
+    )
+
+    # --------------------------------------------------
     # Training
     # --------------------------------------------------
 
@@ -196,6 +220,17 @@ def main():
             f"Val Loss: {val_loss:.4f} | "
             f"Val Acc: {val_acc:.4f}"
         )
+
+        early_stopping.step(
+            val_loss,
+            model
+        )
+
+        if early_stopping.should_stop:
+            print(
+                f"Early stopping triggered at epoch {epoch + 1}."
+            )
+            break
 
 
 if __name__ == "__main__":
