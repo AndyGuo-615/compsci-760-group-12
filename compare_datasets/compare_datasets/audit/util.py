@@ -6,18 +6,7 @@ import sys
 import time
 from pathlib import Path
 
-import numpy as np
-
 from ..model import ImageRecord
-
-_POPCOUNT_TABLE = np.array([bin(i).count("1") for i in range(256)], dtype=np.uint8)
-
-
-def _popcount(values: np.ndarray) -> np.ndarray:
-    """Population count of a uint64 array (bitwise_count, with a table fallback)."""
-    if hasattr(np, "bitwise_count"):
-        return np.bitwise_count(values)
-    return _POPCOUNT_TABLE[values.view(np.uint8)].sum(axis=-1)
 
 
 def _hash_int(h) -> int:
