@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compare-datasets"
+version = "0.1.0"
+description = "Compare two image datasets for exact and near-duplicate images (COMPSCI 760 Section 6.3 checks)"
+requires-python = ">=3.10"
+dependencies = [
+    "pillow",
+    "numpy",
+    "imagehash",
+    "scikit-image",
+]
+
+[project.scripts]
+compare-datasets = "compare_datasets.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["compare_datasets*"]

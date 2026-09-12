@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# Datasets - LARGE (GBs) and LICENCE-RESTRICTED. Never commit these.
+#   SOCOFing : Kaggle "Other (specified in description)" = noncommercial
+#              research-only, AS IS, must cite Shehu et al. 2018.
+#   Sravani  : Kaggle licence "Unknown" - do not redistribute.
+#   Krishna  : MIT, but it duplicates Sravani.
+# Download/unzip them locally instead.
+# ---------------------------------------------------------------------------
+DataSet_*/
+data/
+*.zip
+
+# ---------------------------------------------------------------------------
+# Generated audit / comparison outputs (huge CSVs, JSON, shard files)
+# ---------------------------------------------------------------------------
+compare_datasets/dataset_audit_report_files/
+compare_datasets/dataset_audit_report_files_OLD/
+*_report_files/
+*_report_files_OLD/
+audit_out/
+dataset_comparison_report*.txt
+
+# ---------------------------------------------------------------------------
+# Python environment / build artifacts
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# ---------------------------------------------------------------------------
+# Agent / editor / OS
+# ---------------------------------------------------------------------------
+.omo/
+.idea/
+.vscode/
+.DS_Store
+
+# ---------------------------------------------------------------------------
+# Stray file at repo root (PostScript, not project source)
+# ---------------------------------------------------------------------------
+zipfile
