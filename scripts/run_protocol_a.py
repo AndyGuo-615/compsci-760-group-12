@@ -116,19 +116,19 @@ def main():
     train_dataset = FingerprintDataset(
         split_csv,
         split="train",
-        transform=get_train_transform()
+        transform=get_train_transform(args.pretrained)
     )
 
     val_dataset = FingerprintDataset(
         split_csv,
         split="validation",
-        transform=get_eval_transform()
+        transform=get_eval_transform(args.pretrained)
     )
 
     test_dataset = FingerprintDataset(
         split_csv,
         split="test",
-        transform=get_eval_transform()
+        transform=get_eval_transform(args.pretrained)
     )
 
     # --------------------------------------------------
