@@ -20,6 +20,7 @@ from src.dataset import FingerprintDataset
 from src.model import build_resnet18
 from src.transforms import get_train_transform, get_eval_transform
 from src.train import train_one_epoch, validate_one_epoch, EarlyStopping
+from src.evaluate import evaluate_model
 
 
 def main():
@@ -116,6 +117,12 @@ def main():
         transform=get_eval_transform()
     )
 
+    test_dataset = FingerprintDataset(
+        split_csv,
+        split="test",
+        transform=get_eval_transform()
+    )
+
     # --------------------------------------------------
     # DataLoaders
     # --------------------------------------------------
@@ -132,8 +139,15 @@ def main():
         shuffle=False
     )
 
+    test_loader = DataLoader(
+        test_dataset,
+        batch_size=args.batch_size,
+        shuffle=False
+    )
+
     print("Train images:", len(train_dataset))
     print("Validation images:", len(val_dataset))
+    print("Test images:", len(test_dataset))
     print()
 
     # --------------------------------------------------
@@ -233,5 +247,35 @@ def main():
             break
 
 
+    # --------------------------------------------------
+    # Test evaluation using the best saved model
+    # --------------------------------------------------
+
+    model.load_state_dict(
+        torch.load(
+            checkpoint_path,
+            map_location=device
+        )
+    )
+
+    test_results = evaluate_model(
+        model,
+        test_loader,
+        device
+    )
+
+    print()
+    print("Test Results")
+    print("-------------------------")
+    print(f"Accuracy: {test_results['accuracy']:.4f}")
+    print(
+        f"Balanced Accuracy: "
+        f"{test_results['balanced_accuracy']:.4f}"
+    )
+    print(f"Macro F1: {test_results['macro_f1']:.4f}")
+    print("Confusion Matrix:")
+    print(test_results["confusion_matrix"])
+
+    
 if __name__ == "__main__":
     main()
