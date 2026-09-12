@@ -56,6 +56,13 @@ def main():
     )
 
     parser.add_argument(
+        "--optimizer",
+        type=str,
+        choices=["sgd", "adam"],
+        required=True
+    )
+
+    parser.add_argument(
         "--pretrained",
         action="store_true"
     )
@@ -96,6 +103,7 @@ def main():
     print("Batch size:", args.batch_size)
     print("Epochs:", args.epochs)
     print("Learning rate:", args.lr)
+    print("Optimizer:", args.optimizer)
     print("Pretrained:", args.pretrained)
     print("Patience:", args.patience)
     print("-------------------------")
@@ -184,10 +192,16 @@ def main():
 
     criterion = torch.nn.CrossEntropyLoss()
 
-    optimizer = torch.optim.SGD(
-        model.parameters(),
-        lr=args.lr
-    )
+    if args.optimizer == "sgd":
+        optimizer = torch.optim.SGD(
+            model.parameters(),
+            lr=args.lr
+        )
+    elif args.optimizer == "adam":
+        optimizer = torch.optim.Adam(
+            model.parameters(),
+            lr=args.lr
+        )
 
     # --------------------------------------------------
     # Early stopping and model saving
