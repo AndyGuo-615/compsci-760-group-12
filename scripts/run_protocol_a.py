@@ -273,6 +273,13 @@ def main():
         f"{test_results['balanced_accuracy']:.4f}"
     )
     print(f"Macro F1: {test_results['macro_f1']:.4f}")
+
+    print()
+    print("Per-Class Recall:")
+    for class_name, recall in test_results["per_class_recall"].items():
+        print(f"{class_name}: {recall:.4f}")
+
+    print()
     print("Confusion Matrix:")
     print(test_results["confusion_matrix"])
 
