@@ -49,6 +49,8 @@ def run_audit(
     near_rows: list[dict] = []
     grouped_rows: list[dict] = []
     near_candidate_count = 0
+    near_pairs_skipped = 0
+    near_failed_chunks = 0
     near_csv_written = False
     workers = settings.workers if settings.workers > 0 else (os.cpu_count() or 1)
 
@@ -59,7 +61,12 @@ def run_audit(
         )
         print(f"  {len(pairs)} hash-level candidate pair(s)", file=sys.stderr)
         if workers > 1 and export_dir is not None:
-            near_rows, near_candidate_count = score_near_pairs_streaming(
+            (
+                near_rows,
+                near_candidate_count,
+                near_pairs_skipped,
+                near_failed_chunks,
+            ) = score_near_pairs_streaming(
                 records,
                 pairs,
                 settings.ssim_threshold,
@@ -69,8 +76,10 @@ def run_audit(
             )
             near_csv_written = True
         else:
-            near_rows = score_near_pairs(records, pairs, settings.ssim_threshold)
-            near_candidate_count = len(near_rows)
+            near_rows, near_pairs_skipped = score_near_pairs(
+                records, pairs, settings.ssim_threshold
+            )
+            near_candidate_count = len(pairs)
         print("Grouping (union-find)...", file=sys.stderr)
         grouped_rows = assign_groups(records, exact_rows, near_rows)
 
@@ -90,6 +99,8 @@ def run_audit(
         },
         runtime,
         near_candidate_count=near_candidate_count,
+        near_pairs_skipped=near_pairs_skipped,
+        near_failed_chunks=near_failed_chunks,
     )
     return AuditResult(
         root=root,

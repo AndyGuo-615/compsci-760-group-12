@@ -18,7 +18,7 @@ from .schema import (
     _write_csv,
 )
 from .summary import build_summary
-from .util import _hash_int, _log_progress, _popcount, audit_label
+from .util import _hash_int, _log_progress, audit_label
 
 __all__ = [
     "EXACT_FIELDS",

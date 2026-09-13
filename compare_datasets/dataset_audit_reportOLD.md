@@ -1,13 +1,13 @@
 # Dataset Audit Report
 
-- **Generated:** 2026-09-12T16:56:44
-- **Dataset:** `/var/home/peter/compsci-760-group-12/DataSet_3_Sokoto_Coventry_Fingerprint_Dataset/SOCOFing`
+- **Generated:** 2026-09-12T13:28:09
+- **Dataset:** `/var/home/peter/760_Group_Project/DataSet 3 - Sokoto Coventry Fingerprint Dataset/SOCOFing`
 - **Mode:** single-dataset audit (Proposal §7.1 / §7.4 / §7.5 + grouping)
 - **SSIM backend:** scikit-image (structural_similarity)
 - **pHash threshold:** Hamming <= 10
 - **dHash threshold:** Hamming <= 12
 - **SSIM threshold:** 0.95
-- **Runtime:** 393.5 s
+- **Runtime:** 390.5 s
 
 ---
 
@@ -55,13 +55,13 @@ Formats: bmp (55270)
 
 | Class A | Class B | File A | File B | pHash | dHash | SSIM | Related |
 |---|---|---|---|---|---|---|---|
-| Altered | Real | Altered/Altered-Easy/26__M_Right_little_finger_Obl.BMP | Real/26__M_Right_little_finger.BMP | 0 | 0 | 1.0000 | yes |
+| Altered | Real | Altered/Altered-Easy/185__M_Left_index_finger_Obl.BMP | Real/185__M_Left_index_finger.BMP | 0 | 0 | 1.0000 | yes |
 | Altered | Real | Altered/Altered-Easy/127__F_Left_thumb_finger_Obl.BMP | Real/127__F_Left_thumb_finger.BMP | 0 | 0 | 1.0000 | yes |
 | Altered | Real | Altered/Altered-Easy/131__M_Right_index_finger_Obl.BMP | Real/131__M_Right_index_finger.BMP | 0 | 0 | 1.0000 | yes |
+| Altered | Real | Altered/Altered-Easy/26__M_Right_little_finger_Obl.BMP | Real/26__M_Right_little_finger.BMP | 0 | 0 | 1.0000 | yes |
 | Altered | Real | Altered/Altered-Easy/212__M_Right_thumb_finger_Obl.BMP | Real/212__M_Right_thumb_finger.BMP | 0 | 0 | 1.0000 | yes |
 | Altered | Real | Altered/Altered-Easy/219__M_Right_ring_finger_Obl.BMP | Real/219__M_Right_ring_finger.BMP | 0 | 0 | 1.0000 | yes |
 | Altered | Real | Altered/Altered-Easy/226__M_Right_little_finger_Obl.BMP | Real/226__M_Right_little_finger.BMP | 0 | 0 | 1.0000 | yes |
-| Altered | Real | Altered/Altered-Easy/185__M_Left_index_finger_Obl.BMP | Real/185__M_Left_index_finger.BMP | 0 | 0 | 1.0000 | yes |
 | Altered | Real | Altered/Altered-Easy/348__F_Right_thumb_finger_Obl.BMP | Real/348__F_Right_thumb_finger.BMP | 0 | 0 | 1.0000 | yes |
 | Altered | Altered | Altered/Altered-Hard/363__M_Left_little_finger_Obl.BMP | Altered/Altered-Medium/363__M_Left_little_finger_Obl.BMP | 2 | 1 | 0.9991 | yes |
 | Altered | Real | Altered/Altered-Easy/590__M_Left_middle_finger_Zcut.BMP | Real/590__M_Left_middle_finger.BMP | 0 | 0 | 0.9991 | yes |

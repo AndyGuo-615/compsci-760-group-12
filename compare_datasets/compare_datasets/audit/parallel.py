@@ -36,18 +36,21 @@ def _score_chunk(
     chunk: list[tuple[int, int, int, int]],
     ssim_threshold: float,
     shard_path: str,
-) -> tuple[str, int, int, list[dict]]:
+) -> tuple[str, int, int, list[dict], int]:
     """Score one chunk of pairs and write every row to *shard_path*.
 
-    Returns ``(shard_path, rows_written, related_written, related_rows)`` so the
-    parent never has to hold the full candidate table in memory.
+    Returns ``(shard_path, rows_written, related_written, related_rows, skipped)``
+    so the parent never has to hold the full candidate table in memory and never
+    drops an unscored pair silently.
     """
     rows: list[dict] = []
     related: list[dict] = []
+    skipped = 0
     for a, b, d_ph, d_dh in chunk:
         try:
             s = compute_ssim(load_gray(_SCORE_PATHS[a]), load_gray(_SCORE_PATHS[b]))
-        except Exception:  # noqa: BLE001 - skip unreadable pair
+        except Exception:  # noqa: BLE001 - count the unreadable pair, never silent
+            skipped += 1
             continue
         row = {
             "image_id_a": a,
@@ -66,7 +69,7 @@ def _score_chunk(
         if row["related"]:
             related.append(row)
     _write_csv(Path(shard_path), NEAR_FIELDS, rows)
-    return shard_path, len(rows), len(related), related
+    return shard_path, len(rows), len(related), related, skipped
 
 
 def score_near_pairs_streaming(
@@ -77,12 +80,14 @@ def score_near_pairs_streaming(
     near_csv_path: Path,
     shard_dir: Path,
     log: bool = True,
-) -> tuple[list[dict], int]:
+) -> tuple[list[dict], int, int, int]:
     """Parallel SSIM scoring that streams all rows to *near_csv_path*.
 
     Every worker writes its own shard CSV; the parent merges the shards and keeps
     only the accepted (``related``) rows in memory.  Returns
-    ``(related_rows_sorted_by_ssim, total_candidate_count)``.
+    ``(related_rows_sorted_by_ssim, total_candidate_count, skipped, failed_chunks)``
+    where *skipped* counts every candidate pair that produced no row: load/SSIM
+    errors plus pairs lost to a failed worker chunk.
     """
     total = len(pairs)
     started = time.time()
@@ -95,7 +100,7 @@ def score_near_pairs_streaming(
         )
     if total == 0:
         _write_csv(near_csv_path, NEAR_FIELDS, [])
-        return [], 0
+        return [], 0, 0, 0
 
     paths = [str(r.path) for r in records]
     rels = [r.rel for r in records]
@@ -107,6 +112,8 @@ def score_near_pairs_streaming(
     related: list[dict] = []
     shard_paths: list[str] = []
     scored = 0
+    skipped = 0
+    failed_chunks = 0
     n_jobs = len(chunks)
     log_every = max(1, n_jobs // 20)
 
@@ -115,27 +122,32 @@ def score_near_pairs_streaming(
         initializer=_init_score_worker,
         initargs=(paths, rels, labels),
     ) as ex:
-        futures = [
+        futures = {
             ex.submit(
                 _score_chunk,
                 chunk,
                 ssim_threshold,
                 str(shard_dir / f"near_shard_{i:06d}.csv"),
-            )
+            ): len(chunk)
             for i, chunk in enumerate(chunks)
-        ]
+        }
         for done, fut in enumerate(as_completed(futures), 1):
             try:
-                shard_path, n_rows, _n_related, rel_rows = fut.result()
-            except Exception as exc:  # noqa: BLE001 - keep other workers going
+                shard_path, n_rows, _n_related, rel_rows, n_skipped = fut.result()
+            except Exception as exc:  # noqa: BLE001 - count the loss, keep other workers going
+                failed_chunks += 1
+                skipped += futures[fut]
                 if log:
                     print(f"  SSIM: worker failed: {exc}", file=sys.stderr)
                 continue
             shard_paths.append(shard_path)
             related.extend(rel_rows)
             scored += n_rows
+            skipped += n_skipped
             if log and (done % log_every == 0 or done == n_jobs):
-                _log_progress("SSIM", done, n_jobs, started, f"{scored} scored")
+                _log_progress(
+                    "SSIM", done, n_jobs, started, f"{scored} scored, {skipped} skipped"
+                )
 
     with open(near_csv_path, "w", newline="", encoding="utf-8") as out:
         writer = csv.DictWriter(out, fieldnames=NEAR_FIELDS)
@@ -154,6 +166,15 @@ def score_near_pairs_streaming(
         pass
     if log:
         print(f"  SSIM: merged {len(shard_paths)} shard(s) -> {near_csv_path}", file=sys.stderr)
+    if log and skipped:
+        if failed_chunks:
+            print(
+                f"  SSIM: {skipped} pair(s) not scored "
+                f"({failed_chunks} failed chunk(s))",
+                file=sys.stderr,
+            )
+        else:
+            print(f"  SSIM: skipped {skipped} pair(s) (load/SSIM error)", file=sys.stderr)
 
     related.sort(key=lambda r: -r["ssim"])
-    return related, total
+    return related, total, skipped, failed_chunks
