@@ -1,5 +1,11 @@
 data/*
 !data/README.md
+!data/manifests/
+data/manifests/*
+!data/manifests/main_subject_groups.csv
+
 .vscode/
 __pycache__/
 checkpoints/
+*.pt
+*.pth
