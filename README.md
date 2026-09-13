@@ -2,6 +2,24 @@
 
 Does the Fingerprint-to-Blood-Group Result Survive a Leakage-Controlled Evaluation?
 
+## Protocol B: Leakage-Controlled Group Split
+
+This branch adds Protocol B, which replaces the random image split with a leakage-controlled group split. The ResNet-18 architecture, preprocessing, optimizer, training parameters, loss function, and evaluation metrics remain the same as in Protocol A.
+
+All 5,837 images were linked to SOCOFing subject identities using exact SHA-256 content matching and assigned to 587 leakage-control groups. Images belonging to the same group cannot cross the training, validation, and test sets.
+
+Five group-based splits were generated using seeds 111, 222, 333, 444, and 555. All five splits passed the leakage check with zero crossing groups.
+
+### Protocol B results
+
+| Metric | Mean | Standard deviation |
+|---|---:|---:|
+| Accuracy | 0.8759 | 0.0114 |
+| Balanced accuracy | 0.8777 | 0.0157 |
+| Macro F1 | 0.8781 | 0.0123 |
+
+The results measure prediction of the dataset-provided labels. They should not be interpreted as evidence that fingerprints can determine real blood groups because the recovered subject groups contain conflicting blood-group labels.
+
 # Protocol A: ResNet-18 Training Pipeline
 
 This branch contains the ResNet-18 training framework for **Protocol A: Random Image Split**.
