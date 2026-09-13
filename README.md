@@ -10,13 +10,17 @@ All 5,837 images were linked to SOCOFing subject identities using exact SHA-256 
 
 Five group-based splits were generated using seeds 111, 222, 333, 444, and 555. All five splits passed the leakage check with zero crossing groups.
 
-### Protocol B results
+### Protocol B results across five seeds
 
-| Metric | Mean | Standard deviation |
-|---|---:|---:|
-| Accuracy | 0.8759 | 0.0114 |
-| Balanced accuracy | 0.8777 | 0.0157 |
-| Macro F1 | 0.8781 | 0.0123 |
+| Seed | Accuracy | Balanced Accuracy | Macro F1 |
+|---:|---:|---:|---:|
+| 111 | 0.8729 | 0.8695 | 0.8759 |
+| 222 | 0.8853 | 0.8893 | 0.8873 |
+| 333 | 0.8830 | 0.8874 | 0.8835 |
+| 444 | 0.8623 | 0.8554 | 0.8624 |
+| 555 | 0.8648 | 0.8667 | 0.8675 |
+| **Mean** | **0.8737** | **0.8737** | **0.8753** |
+| **Sample SD** | **0.0104** | **0.0144** | **0.0105** |
 
 The results measure prediction of the dataset-provided labels. They should not be interpreted as evidence that fingerprints can determine real blood groups because the recovered subject groups contain conflicting blood-group labels.
 
