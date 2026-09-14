@@ -286,6 +286,8 @@ def main():
         f"Balanced Accuracy: "
         f"{test_results['balanced_accuracy']:.4f}"
     )
+    print(f"Macro Precision: {test_results['macro_precision']:.4f}")
+    print(f"Macro Recall: {test_results['macro_recall']:.4f}")
     print(f"Macro F1: {test_results['macro_f1']:.4f}")
 
     print()

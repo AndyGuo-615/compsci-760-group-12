@@ -8,10 +8,13 @@ Source: Kaggle - Fingerprint Blood Group Classification Dataset
 
 Place the downloaded and extracted dataset in:
 
+```text
 data/datasets/
+```
 
 Expected structure:
 
+```text
 data/datasets/
 ├── A+
 ├── A-
@@ -21,3 +24,4 @@ data/datasets/
 ├── B-
 ├── O+
 └── O-
+```

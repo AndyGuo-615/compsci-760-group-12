@@ -1,0 +1,53 @@
+Protocol A
+-------------------------
+Seed: 444
+Batch size: 32
+Epochs: 10
+Learning rate: 0.0001
+Optimizer: adam
+Pretrained: True
+Patience: 3
+-------------------------
+
+Train images: 4085
+Validation images: 876
+Test images: 876
+
+Device: cpu
+
+Epoch 1/10 | Train Loss: 0.6597 | Train Acc: 0.7581 | Val Loss: 0.3756 | Val Acc: 0.8619
+Epoch 2/10 | Train Loss: 0.3074 | Train Acc: 0.8862 | Val Loss: 0.3350 | Val Acc: 0.8733
+Epoch 3/10 | Train Loss: 0.1956 | Train Acc: 0.9351 | Val Loss: 0.3440 | Val Acc: 0.8539
+Epoch 4/10 | Train Loss: 0.1249 | Train Acc: 0.9611 | Val Loss: 0.2789 | Val Acc: 0.8973
+Epoch 5/10 | Train Loss: 0.0798 | Train Acc: 0.9758 | Val Loss: 0.2838 | Val Acc: 0.8950
+Epoch 6/10 | Train Loss: 0.0444 | Train Acc: 0.9902 | Val Loss: 0.2893 | Val Acc: 0.8950
+Epoch 7/10 | Train Loss: 0.0349 | Train Acc: 0.9909 | Val Loss: 0.3592 | Val Acc: 0.8744
+Early stopping triggered at epoch 7.
+
+Test Results
+-------------------------
+Accuracy: 0.8813
+Balanced Accuracy: 0.8775
+Macro Precision: 0.8975
+Macro Recall: 0.8775
+Macro F1: 0.8849
+
+Per-Class Recall:
+A+: 0.8500
+A-: 0.9079
+AB+: 0.9340
+AB-: 0.8772
+B+: 0.8980
+B-: 0.7838
+O+: 0.9375
+O-: 0.8318
+
+Confusion Matrix:
+[[ 51   0   2   0   0   0   5   2]
+ [  0 138   2   4   0   3   5   0]
+ [  0   3  99   0   1   0   2   1]
+ [  0   9   0 100   1   1   0   3]
+ [  0   4   2   3  88   1   0   0]
+ [  0  12   0   6   6  87   0   0]
+ [  1   5   0   2   0   0 120   0]
+ [  0   2   5   6   0   0   5  89]]
