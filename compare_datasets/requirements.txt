@@ -1,4 +1,4 @@
 pillow
-numpy
+numpy>=2.0
 imagehash
 scikit-image

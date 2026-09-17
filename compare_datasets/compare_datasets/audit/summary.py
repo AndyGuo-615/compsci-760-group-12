@@ -16,6 +16,8 @@ def build_summary(
     settings: dict,
     runtime: float,
     near_candidate_count: int | None = None,
+    near_pairs_skipped: int = 0,
+    near_failed_chunks: int = 0,
 ) -> dict:
     related = [r for r in near_rows if r["related"]]
     return {
@@ -28,6 +30,8 @@ def build_summary(
         "images_in_exact_duplicate_groups": len(exact_rows),
         "exact_cross_label_groups": len({r["exact_group"] for r in exact_rows if r["label_conflict"]}),
         "near_candidate_pairs": len(near_rows) if near_candidate_count is None else near_candidate_count,
+        "near_pairs_skipped": near_pairs_skipped,
+        "near_failed_chunks": near_failed_chunks,
         "accepted_near_duplicate_pairs": len(related),
         "accepted_near_cross_label_pairs": sum(1 for r in related if r["label_conflict"]),
         "final_groups": len({r["group_id"] for r in grouped_rows}),

@@ -20,7 +20,7 @@ from ..config import AUDIT_HAMMING_CHUNK
 from ..hashing import compute_ssim, hamming
 from ..io_utils import load_gray
 from ..model import ImageRecord
-from .util import _hash_int, _log_progress, _popcount, audit_label
+from .util import _hash_int, _log_progress, audit_label
 
 
 def near_duplicate_candidates(
@@ -61,7 +61,7 @@ def near_duplicate_candidates(
     for ci, start in enumerate(range(0, n, chunk), 1):
         end = min(start + chunk, n)
         block = values[start:end]
-        dist = _popcount(block[:, None] ^ values[None, :])
+        dist = np.bitwise_count(block[:, None] ^ values[None, :])
         for local in range(end - start):
             gi = start + local
             row = dist[local, gi + 1:]
@@ -90,13 +90,17 @@ def score_near_pairs(
     pairs: list[tuple[int, int, int, int]],
     ssim_threshold: float,
     log: bool = True,
-) -> list[dict]:
+) -> tuple[list[dict], int]:
     """Confirm candidate pairs with SSIM and record distances.
+
+    Returns ``(rows, skipped)`` where *skipped* is the number of candidate pairs
+    whose images could not be loaded or scored - never dropped silently.
 
     When *log* is true, prints progress (elapsed time, ETA and the running
     accepted-pair count) to stderr.
     """
     rows: list[dict] = []
+    skipped = 0
     total = len(pairs)
     log_every = max(1, total // 20)
     started = time.time()
@@ -106,9 +110,17 @@ def score_near_pairs(
     for idx, (a, b, d_ph, d_dh) in enumerate(pairs, 1):
         try:
             s = compute_ssim(load_gray(records[a].path), load_gray(records[b].path))
-        except Exception:  # noqa: BLE001 - skip unreadable pair
+        except Exception:  # noqa: BLE001 - count the unreadable pair, never silent
+            skipped += 1
+            if log and skipped <= 5:
+                print(
+                    f"  SSIM: skipped {records[a].rel} <-> {records[b].rel}",
+                    file=sys.stderr,
+                )
             if log and (idx % log_every == 0 or idx == total):
-                _log_progress("SSIM", idx, total, started)
+                _log_progress(
+                    "SSIM", idx, total, started, f"{len(rows)} scored, {skipped} skipped"
+                )
             continue
         rows.append({
             "image_id_a": a,
@@ -124,6 +136,10 @@ def score_near_pairs(
             "label_conflict": audit_label(records[a]) != audit_label(records[b]),
         })
         if log and (idx % log_every == 0 or idx == total):
-            _log_progress("SSIM", idx, total, started, f"{len(rows)} scored")
+            _log_progress(
+                "SSIM", idx, total, started, f"{len(rows)} scored, {skipped} skipped"
+            )
     rows.sort(key=lambda r: (not r["related"], -r["ssim"]))
-    return rows
+    if log and skipped:
+        print(f"  SSIM: skipped {skipped} pair(s) (load/SSIM error)", file=sys.stderr)
+    return rows, skipped

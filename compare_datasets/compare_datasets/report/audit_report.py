@@ -95,6 +95,13 @@ def build_audit_report(result: AuditResult, settings: Settings) -> str:
     L.append(f"- Hash-level candidate pairs: **{s['near_candidate_pairs']}**")
     L.append(f"- Accepted pairs (SSIM >= {settings.ssim_threshold}): **{s['accepted_near_duplicate_pairs']}**")
     L.append(f"- Accepted pairs spanning >1 class: **{s['accepted_near_cross_label_pairs']}**")
+    if s.get("near_pairs_skipped"):
+        L.append(
+            "- Pairs not scored (load/SSIM error or failed worker chunk): "
+            f"**{s['near_pairs_skipped']}**"
+        )
+    if s.get("near_failed_chunks"):
+        L.append(f"- Worker chunks failed: **{s['near_failed_chunks']}**")
     L.append("")
     if near:
         rows = [[

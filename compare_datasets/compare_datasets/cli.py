@@ -110,6 +110,13 @@ def _run_audit(args: argparse.Namespace) -> int:
     _write_report(out_path, report)
     export_audit(result, export_dir)
     print(f"Exports written to {export_dir.resolve()}", file=sys.stderr)
+    if result.summary.get("near_failed_chunks"):
+        print(
+            f"WARNING: {result.summary['near_failed_chunks']} SSIM worker chunk(s) failed; "
+            "some candidate pairs were not scored (see the report).",
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 
