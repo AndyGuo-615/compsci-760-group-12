@@ -1,0 +1,248 @@
+experiment,protocol,condition,seed,accuracy,balanced_accuracy,macro_f1,train_size,test_size
+ridge_vs_background,B,ridge_only,111,0.861397479954181,0.8569527451422595,0.8630284972086542,4085,873
+ridge_vs_background,B,background_only,111,0.45933562428407787,0.4424025865735774,0.4263317505406494,4085,873
+ridge_vs_background,B,ridge_only,222,0.8486238532110092,0.8488560940996841,0.8496341911894086,4092,872
+ridge_vs_background,B,background_only,222,0.47477064220183485,0.46624138730741604,0.44597767110096553,4092,872
+ridge_vs_background,B,ridge_only,333,0.838302752293578,0.8364888070053579,0.8382240615494587,4086,872
+ridge_vs_background,B,background_only,333,0.4827981651376147,0.4774154042227476,0.4605204642752809,4086,872
+ridge_vs_background,B,ridge_only,444,0.8327645051194539,0.8363743587883724,0.8364600135889717,4086,879
+ridge_vs_background,B,background_only,444,0.4812286689419795,0.4661225275647164,0.44666503806965135,4086,879
+ridge_vs_background,B,ridge_only,555,0.854524627720504,0.852942154174144,0.8582548014112028,4085,873
+ridge_vs_background,B,background_only,555,0.4616265750286369,0.4514097489748429,0.4395542139570599,4085,873
+
+
+
+============================================================
+Protocol B | Ridge vs Background | Seed 111 | ridge_only
+============================================================
+Device:     mps
+Train: 4085 | Val: 879 | Test: 873
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/ridge_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 0.7315 | Train Acc: 0.7322 | Val Loss: 0.4936 | Val Acc: 0.8100
+Epoch 02/30 | Train Loss: 0.3251 | Train Acc: 0.8847 | Val Loss: 0.3849 | Val Acc: 0.8373
+Epoch 03/30 | Train Loss: 0.2134 | Train Acc: 0.9256 | Val Loss: 0.4605 | Val Acc: 0.8180
+Epoch 04/30 | Train Loss: 0.1284 | Train Acc: 0.9625 | Val Loss: 0.4670 | Val Acc: 0.8237
+Epoch 05/30 | Train Loss: 0.0865 | Train Acc: 0.9758 | Val Loss: 0.4223 | Val Acc: 0.8453
+Epoch 06/30 | Train Loss: 0.0561 | Train Acc: 0.9868 | Val Loss: 0.5142 | Val Acc: 0.8237
+Epoch 07/30 | Train Loss: 0.0431 | Train Acc: 0.9882 | Val Loss: 0.6439 | Val Acc: 0.7907
+Early stopping at epoch 7
+
+Test Results (ridge_only)
+------------------------------------------------------------
+Accuracy:          0.8614
+Balanced Accuracy: 0.8570
+Macro F1:          0.8630
+
+============================================================
+Protocol B | Ridge vs Background | Seed 111 | background_only
+============================================================
+Device:     mps
+Train: 4085 | Val: 879 | Test: 873
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/background_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 1.4680 | Train Acc: 0.4345 | Val Loss: 1.4733 | Val Acc: 0.4403
+Epoch 02/30 | Train Loss: 1.3103 | Train Acc: 0.4835 | Val Loss: 1.5164 | Val Acc: 0.4187
+Epoch 03/30 | Train Loss: 1.2414 | Train Acc: 0.5173 | Val Loss: 1.5255 | Val Acc: 0.4334
+Epoch 04/30 | Train Loss: 1.1495 | Train Acc: 0.5552 | Val Loss: 1.6444 | Val Acc: 0.3879
+Epoch 05/30 | Train Loss: 1.0259 | Train Acc: 0.6115 | Val Loss: 1.5862 | Val Acc: 0.3982
+Epoch 06/30 | Train Loss: 0.8926 | Train Acc: 0.6602 | Val Loss: 1.7038 | Val Acc: 0.4391
+Early stopping at epoch 6
+
+Test Results (background_only)
+------------------------------------------------------------
+Accuracy:          0.4593
+Balanced Accuracy: 0.4424
+Macro F1:          0.4263
+
+============================================================
+Protocol B | Ridge vs Background | Seed 222 | ridge_only
+============================================================
+Device:     mps
+Train: 4092 | Val: 873 | Test: 872
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/ridge_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 0.7432 | Train Acc: 0.7258 | Val Loss: 0.4275 | Val Acc: 0.8511
+Epoch 02/30 | Train Loss: 0.3348 | Train Acc: 0.8810 | Val Loss: 0.3835 | Val Acc: 0.8557
+Epoch 03/30 | Train Loss: 0.2205 | Train Acc: 0.9238 | Val Loss: 0.4039 | Val Acc: 0.8454
+Epoch 04/30 | Train Loss: 0.1299 | Train Acc: 0.9587 | Val Loss: 0.3986 | Val Acc: 0.8396
+Epoch 05/30 | Train Loss: 0.0821 | Train Acc: 0.9792 | Val Loss: 0.3801 | Val Acc: 0.8603
+Epoch 06/30 | Train Loss: 0.0480 | Train Acc: 0.9910 | Val Loss: 0.5031 | Val Acc: 0.8202
+Epoch 07/30 | Train Loss: 0.0490 | Train Acc: 0.9878 | Val Loss: 0.3935 | Val Acc: 0.8625
+Epoch 08/30 | Train Loss: 0.0390 | Train Acc: 0.9910 | Val Loss: 0.5363 | Val Acc: 0.8293
+Epoch 09/30 | Train Loss: 0.0343 | Train Acc: 0.9905 | Val Loss: 0.4376 | Val Acc: 0.8557
+Epoch 10/30 | Train Loss: 0.0363 | Train Acc: 0.9890 | Val Loss: 0.5419 | Val Acc: 0.8247
+Early stopping at epoch 10
+
+Test Results (ridge_only)
+------------------------------------------------------------
+Accuracy:          0.8486
+Balanced Accuracy: 0.8489
+Macro F1:          0.8496
+
+============================================================
+Protocol B | Ridge vs Background | Seed 222 | background_only
+============================================================
+Device:     mps
+Train: 4092 | Val: 873 | Test: 872
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/background_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 1.4754 | Train Acc: 0.4326 | Val Loss: 1.5468 | Val Acc: 0.3883
+Epoch 02/30 | Train Loss: 1.3183 | Train Acc: 0.4870 | Val Loss: 1.3277 | Val Acc: 0.4845
+Epoch 03/30 | Train Loss: 1.2440 | Train Acc: 0.5230 | Val Loss: 1.4251 | Val Acc: 0.4593
+Epoch 04/30 | Train Loss: 1.1668 | Train Acc: 0.5430 | Val Loss: 1.4288 | Val Acc: 0.4341
+Epoch 05/30 | Train Loss: 1.0352 | Train Acc: 0.6065 | Val Loss: 1.4422 | Val Acc: 0.4490
+Epoch 06/30 | Train Loss: 0.8925 | Train Acc: 0.6689 | Val Loss: 1.8034 | Val Acc: 0.3643
+Epoch 07/30 | Train Loss: 0.7121 | Train Acc: 0.7410 | Val Loss: 1.7403 | Val Acc: 0.4513
+Early stopping at epoch 7
+
+Test Results (background_only)
+------------------------------------------------------------
+Accuracy:          0.4748
+Balanced Accuracy: 0.4662
+Macro F1:          0.4460
+
+============================================================
+Protocol B | Ridge vs Background | Seed 333 | ridge_only
+============================================================
+Device:     mps
+Train: 4086 | Val: 879 | Test: 872
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/ridge_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 0.7235 | Train Acc: 0.7398 | Val Loss: 0.4631 | Val Acc: 0.8123
+Epoch 02/30 | Train Loss: 0.3286 | Train Acc: 0.8789 | Val Loss: 0.5436 | Val Acc: 0.7952
+Epoch 03/30 | Train Loss: 0.2125 | Train Acc: 0.9268 | Val Loss: 0.4242 | Val Acc: 0.8373
+Epoch 04/30 | Train Loss: 0.1139 | Train Acc: 0.9709 | Val Loss: 0.5090 | Val Acc: 0.8043
+Epoch 05/30 | Train Loss: 0.0826 | Train Acc: 0.9770 | Val Loss: 0.5153 | Val Acc: 0.8077
+Epoch 06/30 | Train Loss: 0.0625 | Train Acc: 0.9858 | Val Loss: 0.5727 | Val Acc: 0.8055
+Epoch 07/30 | Train Loss: 0.0538 | Train Acc: 0.9846 | Val Loss: 0.5949 | Val Acc: 0.8055
+Epoch 08/30 | Train Loss: 0.0530 | Train Acc: 0.9836 | Val Loss: 0.4928 | Val Acc: 0.8282
+Early stopping at epoch 8
+
+Test Results (ridge_only)
+------------------------------------------------------------
+Accuracy:          0.8383
+Balanced Accuracy: 0.8365
+Macro F1:          0.8382
+
+============================================================
+Protocol B | Ridge vs Background | Seed 333 | background_only
+============================================================
+Device:     mps
+Train: 4086 | Val: 879 | Test: 872
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/background_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 1.4740 | Train Acc: 0.4192 | Val Loss: 1.4245 | Val Acc: 0.4653
+Epoch 02/30 | Train Loss: 1.3285 | Train Acc: 0.4775 | Val Loss: 1.4274 | Val Acc: 0.4664
+Epoch 03/30 | Train Loss: 1.2509 | Train Acc: 0.5071 | Val Loss: 1.4771 | Val Acc: 0.4175
+Epoch 04/30 | Train Loss: 1.1609 | Train Acc: 0.5470 | Val Loss: 1.4207 | Val Acc: 0.4869
+Epoch 05/30 | Train Loss: 1.0380 | Train Acc: 0.6001 | Val Loss: 1.5276 | Val Acc: 0.4778
+Epoch 06/30 | Train Loss: 0.8718 | Train Acc: 0.6745 | Val Loss: 1.5254 | Val Acc: 0.4551
+Epoch 07/30 | Train Loss: 0.6918 | Train Acc: 0.7374 | Val Loss: 1.8057 | Val Acc: 0.4278
+Epoch 08/30 | Train Loss: 0.4903 | Train Acc: 0.8272 | Val Loss: 1.9974 | Val Acc: 0.4460
+Epoch 09/30 | Train Loss: 0.3102 | Train Acc: 0.9001 | Val Loss: 2.0514 | Val Acc: 0.4562
+Early stopping at epoch 9
+
+Test Results (background_only)
+------------------------------------------------------------
+Accuracy:          0.4828
+Balanced Accuracy: 0.4774
+Macro F1:          0.4605
+
+============================================================
+Protocol B | Ridge vs Background | Seed 444 | ridge_only
+============================================================
+Device:     mps
+Train: 4086 | Val: 872 | Test: 879
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/ridge_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 0.7422 | Train Acc: 0.7269 | Val Loss: 0.4083 | Val Acc: 0.8498
+Epoch 02/30 | Train Loss: 0.3154 | Train Acc: 0.8882 | Val Loss: 0.3804 | Val Acc: 0.8670
+Epoch 03/30 | Train Loss: 0.2290 | Train Acc: 0.9209 | Val Loss: 0.4716 | Val Acc: 0.8326
+Epoch 04/30 | Train Loss: 0.1278 | Train Acc: 0.9623 | Val Loss: 0.3838 | Val Acc: 0.8417
+Epoch 05/30 | Train Loss: 0.0784 | Train Acc: 0.9790 | Val Loss: 0.4109 | Val Acc: 0.8475
+Epoch 06/30 | Train Loss: 0.0499 | Train Acc: 0.9890 | Val Loss: 0.3907 | Val Acc: 0.8532
+Epoch 07/30 | Train Loss: 0.0502 | Train Acc: 0.9868 | Val Loss: 0.5053 | Val Acc: 0.8131
+Early stopping at epoch 7
+
+Test Results (ridge_only)
+------------------------------------------------------------
+Accuracy:          0.8328
+Balanced Accuracy: 0.8364
+Macro F1:          0.8365
+
+============================================================
+Protocol B | Ridge vs Background | Seed 444 | background_only
+============================================================
+Device:     mps
+Train: 4086 | Val: 872 | Test: 879
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/background_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 1.4870 | Train Acc: 0.4112 | Val Loss: 1.3246 | Val Acc: 0.4862
+Epoch 02/30 | Train Loss: 1.3116 | Train Acc: 0.4812 | Val Loss: 1.3374 | Val Acc: 0.4713
+Epoch 03/30 | Train Loss: 1.2179 | Train Acc: 0.5284 | Val Loss: 1.3984 | Val Acc: 0.4427
+Epoch 04/30 | Train Loss: 1.1352 | Train Acc: 0.5609 | Val Loss: 1.3347 | Val Acc: 0.4713
+Epoch 05/30 | Train Loss: 0.9771 | Train Acc: 0.6248 | Val Loss: 1.4145 | Val Acc: 0.4759
+Epoch 06/30 | Train Loss: 0.8161 | Train Acc: 0.6931 | Val Loss: 1.6095 | Val Acc: 0.4564
+Early stopping at epoch 6
+
+Test Results (background_only)
+------------------------------------------------------------
+Accuracy:          0.4812
+Balanced Accuracy: 0.4661
+Macro F1:          0.4467
+
+============================================================
+Protocol B | Ridge vs Background | Seed 555 | ridge_only
+============================================================
+Device:     mps
+Train: 4085 | Val: 879 | Test: 873
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/ridge_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 0.7278 | Train Acc: 0.7322 | Val Loss: 0.3802 | Val Acc: 0.8589
+Epoch 02/30 | Train Loss: 0.3192 | Train Acc: 0.8862 | Val Loss: 0.4105 | Val Acc: 0.8453
+Epoch 03/30 | Train Loss: 0.2117 | Train Acc: 0.9302 | Val Loss: 0.3757 | Val Acc: 0.8532
+Epoch 04/30 | Train Loss: 0.1289 | Train Acc: 0.9601 | Val Loss: 0.4471 | Val Acc: 0.8271
+Epoch 05/30 | Train Loss: 0.0739 | Train Acc: 0.9802 | Val Loss: 0.4708 | Val Acc: 0.8498
+Epoch 06/30 | Train Loss: 0.0561 | Train Acc: 0.9873 | Val Loss: 0.5022 | Val Acc: 0.8191
+Epoch 07/30 | Train Loss: 0.0471 | Train Acc: 0.9897 | Val Loss: 0.4585 | Val Acc: 0.8407
+Epoch 08/30 | Train Loss: 0.0336 | Train Acc: 0.9927 | Val Loss: 0.5006 | Val Acc: 0.8510
+Early stopping at epoch 8
+
+Test Results (ridge_only)
+------------------------------------------------------------
+Accuracy:          0.8545
+Balanced Accuracy: 0.8529
+Macro F1:          0.8583
+
+============================================================
+Protocol B | Ridge vs Background | Seed 555 | background_only
+============================================================
+Device:     mps
+Train: 4085 | Val: 879 | Test: 873
+Image root: /Users/a75027/Documents/GitHub/compsci-760-group-12/data/datasets_processed/background_only
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 1.4661 | Train Acc: 0.4375 | Val Loss: 1.3416 | Val Acc: 0.4721
+Epoch 02/30 | Train Loss: 1.3243 | Train Acc: 0.4859 | Val Loss: 1.3884 | Val Acc: 0.4642
+Epoch 03/30 | Train Loss: 1.2365 | Train Acc: 0.5155 | Val Loss: 1.3841 | Val Acc: 0.4869
+Epoch 04/30 | Train Loss: 1.1372 | Train Acc: 0.5652 | Val Loss: 1.4080 | Val Acc: 0.4516
+Epoch 05/30 | Train Loss: 1.0199 | Train Acc: 0.6088 | Val Loss: 1.5209 | Val Acc: 0.4437
+Epoch 06/30 | Train Loss: 0.8564 | Train Acc: 0.6754 | Val Loss: 1.5939 | Val Acc: 0.4175
+Early stopping at epoch 6
+
+Test Results (background_only)
+------------------------------------------------------------
+Accuracy:          0.4616
+Balanced Accuracy: 0.4514
+Macro F1:          0.4396
+
+============================================================
+All results saved to: /Users/a75027/Documents/GitHub/compsci-760-group-12/control_experiments/results/ridge_vs_background.csv
+============================================================
+
+Summary (mean ± std over seeds):
+                accuracy         balanced_accuracy         macro_f1        
+                    mean     std              mean     std     mean     std
+condition                                                                  
+background_only   0.4720  0.0109            0.4607  0.0138   0.4438  0.0124
+ridge_only        0.8471  0.0117            0.8463  0.0095   0.8491  0.0118
