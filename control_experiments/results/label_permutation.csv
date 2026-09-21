@@ -1,0 +1,233 @@
+experiment,protocol,seed,accuracy,balanced_accuracy,macro_f1,train_size,test_size
+label_permutation,B,111,0.16953035509736541,0.12924780701754385,0.08182325091425102,4085,873
+label_permutation,B,222,0.15137614678899083,0.12721582951362365,0.1021829485135857,4092,872
+label_permutation,B,333,0.15711009174311927,0.13480154272609648,0.11769469107747749,4086,872
+label_permutation,B,444,0.1342434584755404,0.1073983654757373,0.07483378760001222,4086,879
+label_permutation,B,555,0.15120274914089346,0.12550978742601704,0.10105823825131874,4085,873
+
+
+============================================================
+Protocol B | Label Permutation | Seed 111
+============================================================
+Permuted split saved to: /Users/a75027/Documents/GitHub/compsci-760-group-12/control_experiments/splits_permuted/protocol_b_seed111_permuted.csv
+Device:  mps
+Train: 4085 | Val: 879 | Test: 873
+Batch size: 32 | LR: 0.0001 | Optimizer: adam | Pretrained: True | Patience: 5
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 2.1404 | Train Acc: 0.1354 | Val Loss: 2.0917 | Val Acc: 0.1832
+Epoch 02/30 | Train Loss: 2.0725 | Train Acc: 0.1689 | Val Loss: 2.1054 | Val Acc: 0.1741
+Epoch 03/30 | Train Loss: 2.0453 | Train Acc: 0.1777 | Val Loss: 2.1000 | Val Acc: 0.1490
+Epoch 04/30 | Train Loss: 2.0269 | Train Acc: 0.2005 | Val Loss: 2.1163 | Val Acc: 0.1593
+Epoch 05/30 | Train Loss: 2.0096 | Train Acc: 0.2027 | Val Loss: 2.1049 | Val Acc: 0.1536
+Epoch 06/30 | Train Loss: 1.9856 | Train Acc: 0.2186 | Val Loss: 2.1311 | Val Acc: 0.1797
+Early stopping at epoch 6
+
+Test Results (Label Permutation)
+------------------------------------------------------------
+Accuracy:          0.1695
+Balanced Accuracy: 0.1292
+Macro F1:          0.0818
+
+Per-Class Recall:
+  A+: 0.0000
+  A-: 0.7303
+  AB+: 0.0000
+  AB-: 0.0877
+  B+: 0.0000
+  B-: 0.0960
+  O+: 0.1200
+  O-: 0.0000
+
+Confusion Matrix:
+[[  0  33   0   3   0   8  12   0]
+ [  1 111   0   8   0  22  10   0]
+ [  0  77   0   3   0  12   9   0]
+ [  0  73   0  10   0  24   7   0]
+ [  1  62   0   5   0  13  11   0]
+ [  1  86   0   9   1  12  15   1]
+ [  0  87   0   7   0  15  15   1]
+ [  1  86   0   0   0  11  10   0]]
+
+============================================================
+Protocol B | Label Permutation | Seed 222
+============================================================
+Permuted split saved to: /Users/a75027/Documents/GitHub/compsci-760-group-12/control_experiments/splits_permuted/protocol_b_seed222_permuted.csv
+Device:  mps
+Train: 4092 | Val: 873 | Test: 872
+Batch size: 32 | LR: 0.0001 | Optimizer: adam | Pretrained: True | Patience: 5
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 2.1374 | Train Acc: 0.1454 | Val Loss: 2.1264 | Val Acc: 0.1191
+Epoch 02/30 | Train Loss: 2.0798 | Train Acc: 0.1672 | Val Loss: 2.0960 | Val Acc: 0.1237
+Epoch 03/30 | Train Loss: 2.0568 | Train Acc: 0.1782 | Val Loss: 2.0950 | Val Acc: 0.1489
+Epoch 04/30 | Train Loss: 2.0279 | Train Acc: 0.1953 | Val Loss: 2.1506 | Val Acc: 0.1363
+Epoch 05/30 | Train Loss: 2.0041 | Train Acc: 0.2089 | Val Loss: 2.1415 | Val Acc: 0.1340
+Epoch 06/30 | Train Loss: 1.9697 | Train Acc: 0.2280 | Val Loss: 2.1903 | Val Acc: 0.1271
+Epoch 07/30 | Train Loss: 1.9211 | Train Acc: 0.2527 | Val Loss: 2.2113 | Val Acc: 0.1226
+Epoch 08/30 | Train Loss: 1.8649 | Train Acc: 0.2840 | Val Loss: 2.2762 | Val Acc: 0.1535
+Early stopping at epoch 8
+
+Test Results (Label Permutation)
+------------------------------------------------------------
+Accuracy:          0.1514
+Balanced Accuracy: 0.1272
+Macro F1:          0.1022
+
+Per-Class Recall:
+  A+: 0.0000
+  A-: 0.5000
+  AB+: 0.0000
+  AB-: 0.1875
+  B+: 0.0636
+  B-: 0.0571
+  O+: 0.1212
+  O-: 0.0882
+
+Confusion Matrix:
+[[ 0 31  1  9  5  2  8  4]
+ [ 0 73  0 30 10  4 17 12]
+ [ 1 52  0 25  3  1 12 11]
+ [ 0 59  0 21  4  3 12 13]
+ [ 0 69  1 13  7  4  9  7]
+ [ 0 59  0 11  5  6 10 14]
+ [ 0 71  0 25  4  5 16 11]
+ [ 0 57  0 19  4  2 11  9]]
+
+============================================================
+Protocol B | Label Permutation | Seed 333
+============================================================
+Permuted split saved to: /Users/a75027/Documents/GitHub/compsci-760-group-12/control_experiments/splits_permuted/protocol_b_seed333_permuted.csv
+Device:  mps
+Train: 4086 | Val: 879 | Test: 872
+Batch size: 32 | LR: 0.0001 | Optimizer: adam | Pretrained: True | Patience: 5
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 2.1391 | Train Acc: 0.1346 | Val Loss: 2.1678 | Val Acc: 0.1183
+Epoch 02/30 | Train Loss: 2.0821 | Train Acc: 0.1583 | Val Loss: 2.0995 | Val Acc: 0.1297
+Epoch 03/30 | Train Loss: 2.0547 | Train Acc: 0.1789 | Val Loss: 2.1199 | Val Acc: 0.1251
+Epoch 04/30 | Train Loss: 2.0297 | Train Acc: 0.1926 | Val Loss: 2.1433 | Val Acc: 0.1274
+Epoch 05/30 | Train Loss: 2.0068 | Train Acc: 0.2073 | Val Loss: 2.1550 | Val Acc: 0.1388
+Epoch 06/30 | Train Loss: 1.9778 | Train Acc: 0.2293 | Val Loss: 2.1810 | Val Acc: 0.1399
+Epoch 07/30 | Train Loss: 1.9413 | Train Acc: 0.2531 | Val Loss: 2.1610 | Val Acc: 0.1445
+Early stopping at epoch 7
+
+Test Results (Label Permutation)
+------------------------------------------------------------
+Accuracy:          0.1571
+Balanced Accuracy: 0.1348
+Macro F1:          0.1177
+
+Per-Class Recall:
+  A+: 0.0000
+  A-: 0.2065
+  AB+: 0.1491
+  AB-: 0.2190
+  B+: 0.0000
+  B-: 0.1171
+  O+: 0.3381
+  O-: 0.0485
+
+Confusion Matrix:
+[[ 0  7  3 12  0  3 22  3]
+ [ 0 32 16 32  0 16 52  7]
+ [ 0 19 17 29  1  9 36  3]
+ [ 0 26  4 23  1  8 38  5]
+ [ 0 30  6 15  0  3 35  6]
+ [ 0 22 16 18  0 13 38  4]
+ [ 0 34 11 30  0  9 47  8]
+ [ 0 15 16 26  0  9 32  5]]
+
+============================================================
+Protocol B | Label Permutation | Seed 444
+============================================================
+Permuted split saved to: /Users/a75027/Documents/GitHub/compsci-760-group-12/control_experiments/splits_permuted/protocol_b_seed444_permuted.csv
+Device:  mps
+Train: 4086 | Val: 872 | Test: 879
+Batch size: 32 | LR: 0.0001 | Optimizer: adam | Pretrained: True | Patience: 5
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 2.1482 | Train Acc: 0.1356 | Val Loss: 2.1013 | Val Acc: 0.1514
+Epoch 02/30 | Train Loss: 2.0750 | Train Acc: 0.1623 | Val Loss: 2.1225 | Val Acc: 0.1502
+Epoch 03/30 | Train Loss: 2.0528 | Train Acc: 0.1762 | Val Loss: 2.0840 | Val Acc: 0.1674
+Epoch 04/30 | Train Loss: 2.0331 | Train Acc: 0.1953 | Val Loss: 2.1409 | Val Acc: 0.1468
+Epoch 05/30 | Train Loss: 2.0102 | Train Acc: 0.2039 | Val Loss: 2.1123 | Val Acc: 0.1365
+Epoch 06/30 | Train Loss: 1.9761 | Train Acc: 0.2288 | Val Loss: 2.2138 | Val Acc: 0.1456
+Epoch 07/30 | Train Loss: 1.9366 | Train Acc: 0.2553 | Val Loss: 2.2106 | Val Acc: 0.1239
+Epoch 08/30 | Train Loss: 1.8783 | Train Acc: 0.2773 | Val Loss: 2.3069 | Val Acc: 0.1376
+Early stopping at epoch 8
+
+Test Results (Label Permutation)
+------------------------------------------------------------
+Accuracy:          0.1342
+Balanced Accuracy: 0.1074
+Macro F1:          0.0748
+
+Per-Class Recall:
+  A+: 0.0000
+  A-: 0.4636
+  AB+: 0.0300
+  AB-: 0.0496
+  B+: 0.0000
+  B-: 0.0348
+  O+: 0.2640
+  O-: 0.0172
+
+Confusion Matrix:
+[[ 0 30  1  5  1  1 18  0]
+ [ 0 70 10 15  2  1 51  2]
+ [ 0 44  3 20  4  1 25  3]
+ [ 0 59  3  6  2  2 48  1]
+ [ 0 60  3  4  0  0 28  0]
+ [ 0 53  7 14  4  4 32  1]
+ [ 0 67  5 17  3  0 33  0]
+ [ 0 60  5 10  2  2 35  2]]
+
+============================================================
+Protocol B | Label Permutation | Seed 555
+============================================================
+Permuted split saved to: /Users/a75027/Documents/GitHub/compsci-760-group-12/control_experiments/splits_permuted/protocol_b_seed555_permuted.csv
+Device:  mps
+Train: 4085 | Val: 879 | Test: 873
+Batch size: 32 | LR: 0.0001 | Optimizer: adam | Pretrained: True | Patience: 5
+------------------------------------------------------------
+Epoch 01/30 | Train Loss: 2.1299 | Train Acc: 0.1520 | Val Loss: 2.1393 | Val Acc: 0.1468
+Epoch 02/30 | Train Loss: 2.0770 | Train Acc: 0.1679 | Val Loss: 2.0777 | Val Acc: 0.1502
+Epoch 03/30 | Train Loss: 2.0547 | Train Acc: 0.1692 | Val Loss: 2.1010 | Val Acc: 0.1411
+Epoch 04/30 | Train Loss: 2.0399 | Train Acc: 0.1905 | Val Loss: 2.1683 | Val Acc: 0.1206
+Epoch 05/30 | Train Loss: 2.0191 | Train Acc: 0.1990 | Val Loss: 2.1240 | Val Acc: 0.1479
+Epoch 06/30 | Train Loss: 1.9951 | Train Acc: 0.2220 | Val Loss: 2.1536 | Val Acc: 0.1490
+Epoch 07/30 | Train Loss: 1.9666 | Train Acc: 0.2382 | Val Loss: 2.1667 | Val Acc: 0.1274
+Early stopping at epoch 7
+
+Test Results (Label Permutation)
+------------------------------------------------------------
+Accuracy:          0.1512
+Balanced Accuracy: 0.1255
+Macro F1:          0.1011
+
+Per-Class Recall:
+  A+: 0.0000
+  A-: 0.4654
+  AB+: 0.0297
+  AB-: 0.1028
+  B+: 0.2165
+  B-: 0.0248
+  O+: 0.1371
+  O-: 0.0278
+
+Confusion Matrix:
+[[ 0 27  4  3  7  3 10  2]
+ [ 0 74  5 11 26  3 30 10]
+ [ 0 50  3  7 14  2 16  9]
+ [ 0 51  1 11 16  1 21  6]
+ [ 0 38  2 10 21  1 17  8]
+ [ 0 63  3  8 20  3 20  4]
+ [ 0 66  8 10 18  1 17  4]
+ [ 0 48  1 10 20  2 24  3]]
+
+============================================================
+All results saved to: /Users/a75027/Documents/GitHub/compsci-760-group-12/control_experiments/results/label_permutation.csv
+============================================================
+       experiment protocol  seed  accuracy  balanced_accuracy  macro_f1  train_size  test_size
+label_permutation        B   111  0.169530           0.129248  0.081823        4085        873
+label_permutation        B   222  0.151376           0.127216  0.102183        4092        872
+label_permutation        B   333  0.157110           0.134802  0.117695        4086        872
+label_permutation        B   444  0.134243           0.107398  0.074834        4086        879
+label_permutation        B   555  0.151203           0.125510  0.101058        4085        873
