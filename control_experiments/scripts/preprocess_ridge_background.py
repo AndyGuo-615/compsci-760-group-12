@@ -62,7 +62,7 @@ SPLIT_DIR = CONTROL_ROOT / "splits"
 
 GAUSSIAN_SIGMA = 1.0        # for pre-threshold smoothing
 MORPH_KERNEL = 2            # disk radius for closing/opening
-DILATE_KERNEL = 8           # disk radius for expanding the ridge mask
+DILATE_KERNEL = 6           # disk radius for expanding the ridge mask
 MIN_COMPONENT_SIZE = 100    # ignore connected components smaller than this
 BG_BLUR_SIGMA = 4.0         # extra blur on background image
 
@@ -132,10 +132,6 @@ def segment_ridge_mask(gray: np.ndarray) -> np.ndarray:
 
     # 5. Dilate the mask outward to absorb boundary ridges
     mask = binary_dilation(mask, disk(DILATE_KERNEL))
-
-    # Sanity check: if the mask covers >90% of the image, treat as failed
-    if mask.mean() > 0.90:
-        return np.ones_like(gray, dtype=bool)
 
     return mask
 

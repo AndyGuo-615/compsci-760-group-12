@@ -1,5 +1,5 @@
 """
-Group-Level Label Permutation Control Experiment for Protocol B.
+Within-split image-level Label Permutation Control Experiment for Protocol B.
 
 - Reuses src/ modules for full consistency with the main experiment.
 - Original Protocol B train/validation/test split is kept unchanged.
@@ -59,11 +59,11 @@ from src.evaluate import evaluate_model
 SPLIT_DIR = CONTROL_ROOT / "splits"
 
 PERMUTED_SPLIT_DIR = (
-    CONTROL_ROOT / "splits_group_permuted"
+    CONTROL_ROOT / "splits_permuted"
 )
 
 CHECKPOINT_DIR = (
-    CONTROL_ROOT / "checkpoints_group_label_permutation"
+    CONTROL_ROOT / "checkpoints_label_permutation"
 )
 
 RESULT_DIR = CONTROL_ROOT / "results"
@@ -86,10 +86,10 @@ PROTOCOL = "B"
 
 BATCH_SIZE = 32
 LEARNING_RATE = 1e-4
-NUM_EPOCHS = 30
+NUM_EPOCHS = 10
 OPTIMIZER_NAME = "adam"      # "adam" or "sgd"
 PRETRAINED = True
-PATIENCE = 5
+PATIENCE = 3
 NUM_WORKERS = 0
 
 
@@ -620,7 +620,7 @@ def main():
 
     results_file = (
         RESULT_DIR
-        / "group_label_permutation.csv"
+        / "label_permutation.csv"
     )
 
     df_new = pd.DataFrame(
@@ -673,7 +673,7 @@ def main():
     print("=" * 60)
 
     print(
-        "All group-level permutation results "
+        "All permutation results "
         f"saved to:\n{results_file}"
     )
 

@@ -61,10 +61,10 @@ PROTOCOL = "B"
 
 BATCH_SIZE = 32
 LEARNING_RATE = 1e-4
-NUM_EPOCHS = 30
+NUM_EPOCHS = 10
 OPTIMIZER_NAME = "adam"
 PRETRAINED = True
-PATIENCE = 5
+PATIENCE = 3
 NUM_WORKERS = 0
 
 # ImageNet normalization for pretrained ResNet-18
