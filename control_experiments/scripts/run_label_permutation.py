@@ -4,16 +4,13 @@ Within-split image-level Label Permutation Control Experiment for Protocol B.
 - Reuses src/ modules for full consistency with the main experiment.
 - Original Protocol B train/validation/test split is kept unchanged.
 - Only the label assignment is changed.
-- Labels are permuted at the GROUP level:
-    all images belonging to the same group_id receive the same
-    permuted label.
 
 Expected result:
 - Performance should be close to the no-information / chance-level
   performance of the 8-class classification problem.
 
 Run directly:
-    python control_experiments/scripts/run_group_label_permutation.py
+    python control_experiments/scripts/run_label_permutation.py
 """
 
 import sys
@@ -108,7 +105,7 @@ else:
 
 
 # ============================================================
-# Group-Level Label Permutation
+# Within-split image-level Label Permutation
 # ============================================================
 
 def make_group_permuted_split(src_csv, dst_csv, seed):
@@ -528,7 +525,7 @@ def run_one_seed(seed):
     print()
     print(
         "Test Results "
-        "(Group-Level Label Permutation)"
+        "(Within-split image-level Label Permutation)"
     )
 
     print("-" * 60)

@@ -13,7 +13,11 @@ Improved version:
        a strong Gaussian blur to remove any residual ridge texture.
 
 Input:
-    /Users/a75027/Desktop/compsci 760/datasets/
+    (
+    PROJECT_ROOT
+    / "data"
+    / "datasets"
+)
 
 Output:
     data/datasets_processed/ridge_only/
@@ -47,7 +51,12 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 CONTROL_ROOT = SCRIPT_DIR.parent
 PROJECT_ROOT = CONTROL_ROOT.parent
 
-DATA_ROOT = Path("/Users/a75027/Desktop/compsci 760/datasets")
+DATA_ROOT = (
+    PROJECT_ROOT
+    / "data"
+    / "datasets"
+)
+
 OUTPUT_ROOT = PROJECT_ROOT / "data" / "datasets_processed"
 
 RIDGE_OUTPUT = OUTPUT_ROOT / "ridge_only"
