@@ -1,0 +1,28 @@
+{
+  "ambiguous_multi_subject_images": 26,
+  "final_groups": 587,
+  "finger_link_counts": {
+    "index": 1172,
+    "little": 1218,
+    "middle": 1178,
+    "ring": 1193,
+    "thumb": 1120
+  },
+  "groups_with_multiple_blood_groups": 587,
+  "groups_with_multiple_subject_ids": 5,
+  "hand_link_counts": {
+    "Left": 2898,
+    "Right": 2983
+  },
+  "largest_group_size": 58,
+  "main_images": 5837,
+  "matched_images": 5837,
+  "matched_subject_count": 600,
+  "missing_subject_ids_in_range": [],
+  "non_singleton_groups": 587,
+  "socofing_real_images": 6000,
+  "subject_id_max": 600,
+  "subject_id_min": 1,
+  "subject_link_rows": 5881,
+  "unmatched_images": 0
+}
