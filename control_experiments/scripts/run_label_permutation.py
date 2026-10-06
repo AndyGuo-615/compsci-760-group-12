@@ -322,7 +322,7 @@ def run_one_seed(seed):
         PERMUTED_SPLIT_DIR
         / (
             f"protocol_{PROTOCOL.lower()}"
-            f"_seed{seed}_group_permuted.csv"
+            f"_seed{seed}_permuted.csv"
         )
     )
 
