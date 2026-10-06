@@ -1,0 +1,11 @@
+protocol,seed,accepted_pairs,within_split_pairs,cross_split_pairs,unresolved_pairs,pass
+A,111,3,1,2,0,False
+A,222,3,2,1,0,False
+A,333,3,2,1,0,False
+A,444,3,1,2,0,False
+A,555,3,1,2,0,False
+B,111,3,3,0,0,True
+B,222,3,3,0,0,True
+B,333,3,3,0,0,True
+B,444,3,3,0,0,True
+B,555,3,3,0,0,True
