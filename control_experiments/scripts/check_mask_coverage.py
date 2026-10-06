@@ -46,8 +46,10 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 CONTROL_ROOT = SCRIPT_DIR.parent
 PROJECT_ROOT = CONTROL_ROOT.parent
 
-DATA_ROOT = Path(
-    "/Users/a75027/Desktop/compsci 760/datasets"
+DATA_ROOT = (
+    PROJECT_ROOT
+    / "data"
+    / "datasets"
 )
 
 SPLIT_DIR = CONTROL_ROOT / "splits"
@@ -77,7 +79,7 @@ QC_EXAMPLE_DIR.mkdir(
 
 GAUSSIAN_SIGMA = 1.0
 MORPH_KERNEL = 2
-DILATE_KERNEL = 8
+DILATE_KERNEL = 6
 MIN_COMPONENT_SIZE = 100
 
 

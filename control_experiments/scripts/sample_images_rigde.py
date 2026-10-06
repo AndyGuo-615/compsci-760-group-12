@@ -48,7 +48,7 @@ N_SAMPLES = 50
 RANDOM_SEED = 111
 
 # Segmentation parameters
-DILATION_RADIUS = 8
+DILATION_RADIUS = 6
 MIN_COMPONENT_SIZE = 100
 
 # Background blur
