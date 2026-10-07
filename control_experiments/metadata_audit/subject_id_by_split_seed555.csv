@@ -1,0 +1,4 @@
+split,min_subject,max_subject,n_unique_subjects,n_images
+test,17.0,593.0,88,865
+train,1.0,600.0,423,4085
+validation,9.0,599.0,89,861

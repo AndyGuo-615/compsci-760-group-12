@@ -9,6 +9,3 @@
 | Label Permutation               | Within-split label permutation |     0.153 ± 0.007 [0.145, 0.162] |     0.129 ± 0.010 [0.117, 0.141] |     0.098 ± 0.024 [0.067, 0.128] |
 
 
-The two metadata controls target different potential sources of confounding: 
-the Metadata Baseline examines subject/source-level information, 
-whereas the Image/File Metadata Control examines low-level image, file, and acquisition-related characteristics.
