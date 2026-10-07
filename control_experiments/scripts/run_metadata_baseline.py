@@ -1,3 +1,27 @@
+"""
+1. Subject/source metadata control
+-----------------------------------
+This experiment uses:
+    - subject_id_num
+    - gender
+    - finger_position
+
+The purpose is to test for dataset-level or subject/source-level confounding.
+For example, if blood-group labels can be predicted from subject identifiers,
+gender, or acquisition finger/hand information, the dataset may contain
+systematic associations between the class labels and how the images were
+collected or organised.
+
+This experiment therefore asks:
+
+    "Can the blood-group label be predicted from subject/acquisition
+     metadata alone, without using fingerprint image information?"
+
+A strong result would indicate that part of the classification performance
+may be attributable to metadata-related dataset structure rather than
+fingerprint ridge patterns.
+"""
+
 from pathlib import Path
 import re
 import pandas as pd
