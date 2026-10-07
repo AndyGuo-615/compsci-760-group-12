@@ -1,2 +1,3 @@
-# compsci-760-group-12
-Does the Fingerprint-to-Blood-Group Result Survive a Leakage-Controlled Evaluation?
+# compsci-760-group-12 "Does the Fingerprint-to-Blood-Group Result Survive a Leakage-Controlled Evaluation?"
+
+## Data audit + Pre-processing python code
