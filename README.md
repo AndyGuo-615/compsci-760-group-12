@@ -18,7 +18,8 @@ This branch contains the data audit and pre-processing work of the project.
 **Andy Guo** — original script, review and reliability:
 
 - Wrote the original variant of the script.
-- Worked mainly on review and suggestions on all the sections rather than writing the final code; most of the reliability and QOL fixes are of his suggestion — near-duplicate scoring no longer silently drops candidate pairs (skipped pairs and failed worker chunks are counted and reported in the audit report and summary JSON, and a failed chunk raises a warning with a non-zero exit code).
+- Did more on checking and review than on writing the final code, because *Lookers-on see most of the game*; most of the reliability and QOL fixes are of his suggestion — near-duplicate scoring no longer silently drops candidate pairs (skipped pairs and failed worker chunks are counted and reported in the audit report and summary JSON, and a failed chunk raises a warning with a non-zero exit code).
+- Reviewed the other sections of the project as well — see each section's README file: [Control Experiments](https://github.com/AndyGuo-615/compsci-760-group-12/blob/litong-control-experiments/README.md), [Protocol A: ResNet-18 Training Pipeline](https://github.com/AndyGuo-615/compsci-760-group-12/blob/xiting-resnet18-pipeline/README.md), [Protocol B: Leakage-Controlled Group Split](https://github.com/AndyGuo-615/compsci-760-group-12/blob/zoe-protocol-b/README.md).
 
 
 Replication: all outputs of this component are produced by the entry script `compare_datasets/run_compare.py` — compare mode `python run_compare.py PATH_A PATH_B` or audit mode `python run_compare.py <DATASET_DIR> --audit`; run from inside the `compare_datasets/` folder, see [compare_datasets/README.md](compare_datasets/README.md) for all options.
