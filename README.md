@@ -15,3 +15,11 @@ Each section's documentation of contribution and online resources:
 2. Control Experiments: [README](https://github.com/AndyGuo-615/compsci-760-group-12/blob/litong-control-experiments/README.md)
 3. Protocol A: ResNet-18 Training Pipeline (Random Image Split): [README](https://github.com/AndyGuo-615/compsci-760-group-12/blob/xiting-resnet18-pipeline/README.md)
 4. Protocol B: Leakage-Controlled Group Split: [README](https://github.com/AndyGuo-615/compsci-760-group-12/blob/zoe-protocol-b/README.md)
+
+
+## Group Members:
+Andy Guo
+Litong Chen
+Xia Yang
+Xiting Li
+Zoe Wang
