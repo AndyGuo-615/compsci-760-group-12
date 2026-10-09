@@ -1,7 +1,3 @@
-# compsci-760-group-12
-
-Does the Fingerprint-to-Blood-Group Result Survive a Leakage-Controlled Evaluation?
-
 # Protocol A: ResNet-18 Training Pipeline
 
 This branch contains the ResNet-18 training framework and experimental results for **Protocol A: Random Image Split**.
