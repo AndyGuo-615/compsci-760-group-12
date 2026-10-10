@@ -1,16 +1,14 @@
 # Data
 
-The datasets used in this project are not included in the GitHub repository.
+The fingerprint dataset used in this project is not included in the GitHub repository.
 
 ## Fingerprint Blood Group Dataset
 
-Source: Kaggle - Fingerprint Blood Group Classification Dataset
+**Source:** [Fingerprint Blood Group Classification Dataset (Kaggle)](https://www.kaggle.com/datasets/sravani2006/fingerprint-blood-group-classification-dataset)
 
-Place the downloaded and extracted dataset in:
+The dataset contains **5,837 fingerprint images** across eight blood-group categories.
 
-```text
-data/datasets/
-```
+Download and extract the dataset, then place the eight class folders under `data/datasets/`.
 
 Expected structure:
 

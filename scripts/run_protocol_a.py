@@ -185,9 +185,6 @@ def main():
 
     # --------------------------------------------------
     # Loss and optimizer
-    #
-    # TEMPORARY:
-    # Final settings still need group confirmation.
     # --------------------------------------------------
 
     criterion = torch.nn.CrossEntropyLoss()
